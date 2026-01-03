@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhuwan Labs</title>
+  <style>
+    :root { color-scheme: dark; }
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:#0b0c10;
+      color:#e6e6e6;
+    }
+    header{
+      padding:28px 18px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background:radial-gradient(1200px 400px at 50% -50%, rgba(0,255,255,.14), transparent);
+    }
+    h1{ margin:0 0 6px; font-size:28px; letter-spacing:.3px; }
+    p{ margin:0; opacity:.85; line-height:1.45; }
+    main{ max-width:980px; margin:0 auto; padding:22px 18px 40px; }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; }
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:16px;
+      padding:16px;
+      background:rgba(255,255,255,.03);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    .card h2{ margin:0 0 8px; font-size:18px; }
+    .card p{ font-size:14px; opacity:.80; }
+    .btns{ margin-top:12px; display:flex; flex-wrap:wrap; gap:10px; }
+    a.btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px; border-radius:12px;
+      text-decoration:none; font-weight:800; font-size:14px;
+      background:#00e5ff; color:#0b0c10;
+    }
+    a.btn.secondary{
+      background:rgba(255,255,255,.08);
+      color:#e6e6e6;
+      border:1px solid rgba(255,255,255,.14);
+      font-weight:700;
+    }
+    .note{ margin-top:18px; font-size:13px; opacity:.75; }
+    code{ background:rgba(255,255,255,.08); padding:2px 6px; border-radius:8px; }
+    footer{ padding:18px; text-align:center; opacity:.7; border-top:1px solid rgba(255,255,255,.08); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bhuwan Labs</h1>
+    <p>Choose a demo to play. Some demos require <b>camera permission</b>. Best on Chrome.</p>
+  </header>
+
+  <main>
+    <div class="grid">
+      <div class="card">
+        <h2>Hand Flow 3D</h2>
+        <p>Gesture-based 3D particles (camera required).</p>
+        <div class="btns">
+          <a class="btn" href="./hand-flow/" target="_blank" rel="noopener">Open</a>
+          <a class="btn secondary" href="./hand-flow/">Open (same tab)</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Gesture Black Hole</h2>
+        <p>Black hole scene with gesture control (camera required).</p>
+        <div class="btns">
+          <a class="btn" href="./blackhole/" target="_blank" rel="noopener">Open</a>
+          <a class="btn secondary" href="./blackhole/">Open (same tab)</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Particles (Shapes)</h2>
+        <p>Hand gesture shapes + particles (camera required).</p>
+        <div class="btns">
+          <a class="btn" href="./particles/" target="_blank" rel="noopener">Open</a>
+          <a class="btn secondary" href="./particles/">Open (same tab)</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="note">
+      Tip: If camera doesn’t work, open in a normal tab (not inside iframe) and make sure it is on <code>https://</code>.
+    </p>
+  </main>
+
+  <footer>© Bhuwan Bohara</footer>
+</body>
+</html>
