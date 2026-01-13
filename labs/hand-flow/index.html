@@ -13,6 +13,49 @@
 </head>
 <body>
 
+<script>
+(function () {
+  const ua = navigator.userAgent;
+  const isInstagram = ua.includes("Instagram");
+  const isMessenger = ua.includes("FBAN") || ua.includes("FBAV");
+
+  if (isInstagram || isMessenger) {
+    const url = window.location.href;
+
+    document.body.innerHTML = `
+      <div style="
+        background:#000;
+        color:#fff;
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        padding:24px;
+        font-family:system-ui;">
+        <div>
+          <h2>Camera access blocked</h2>
+          <p style="opacity:.85">
+            Instagram/Messenger browser blocks camera access.<br>
+            This AI lab needs camera permission.
+          </p>
+          <a href="${url}" target="_blank"
+             style="display:inline-block;margin-top:16px;
+             padding:12px 18px;background:#1e90ff;
+             color:#fff;border-radius:8px;text-decoration:none;">
+            Open in Browser
+          </a>
+          <p style="margin-top:12px;font-size:13px;opacity:.6">
+            If it doesn’t open, tap ⋮ → Open in browser
+          </p>
+        </div>
+      </div>`;
+  }
+})();
+</script>
+
+    
+
     <div id="ui">
         <h1>Hand Flow 3D</h1>
         <p>Gesture: <span id="gesture-name">Waiting...</span></p>
