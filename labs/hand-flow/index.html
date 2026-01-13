@@ -15,44 +15,60 @@
 
 <script>
 (function () {
-  const ua = navigator.userAgent;
-  const isInstagram = ua.includes("Instagram");
-  const isMessenger = ua.includes("FBAN") || ua.includes("FBAV");
+  const ua = navigator.userAgent || "";
+  const isInstagram = /Instagram/i.test(ua);
+  const isFacebookWebView = /FBAN|FBAV|FB_IAB|Messenger/i.test(ua);
+  const isAndroid = /Android/i.test(ua);
 
-  if (isInstagram || isMessenger) {
+  // Camera API missing OR in-app browser => show blocker page
+  const hasCameraAPI = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
+
+  if (!hasCameraAPI || isInstagram || isFacebookWebView) {
     const url = window.location.href;
 
-    document.body.innerHTML = `
-      <div style="
-        background:#000;
-        color:#fff;
-        height:100vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        padding:24px;
-        font-family:system-ui;">
-        <div>
-          <h2>Camera access blocked</h2>
-          <p style="opacity:.85">
-            Instagram/Messenger browser blocks camera access.<br>
-            This AI lab needs camera permission.
-          </p>
-          <a href="${url}" target="_blank"
-             style="display:inline-block;margin-top:16px;
-             padding:12px 18px;background:#1e90ff;
-             color:#fff;border-radius:8px;text-decoration:none;">
-            Open in Browser
-          </a>
-          <p style="margin-top:12px;font-size:13px;opacity:.6">
-            If it doesn’t open, tap ⋮ → Open in browser
-          </p>
-        </div>
-      </div>`;
+    // Android "intent" link forces Chrome / browser chooser
+    const intentUrl = `intent://${location.host}${location.pathname}${location.search}#Intent;scheme=https;package=com.android.chrome;end`;
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.innerHTML = `
+        <div style="
+          background:#000;color:#fff;height:100vh;
+          display:flex;align-items:center;justify-content:center;
+          text-align:center;padding:24px;font-family:system-ui;">
+          <div style="max-width:420px">
+            <h1 style="margin:0 0 12px;font-size:34px">Camera access blocked</h1>
+            <p style="opacity:.85;line-height:1.5;margin:0 0 18px">
+              Instagram/Messenger browser blocks camera access.<br>
+              Open this page in Chrome/Browser to use Hand Flow 3D.
+            </p>
+
+            ${
+              isAndroid
+                ? `<a href="${intentUrl}"
+                     style="display:inline-block;padding:14px 22px;
+                     background:#1e90ff;color:#fff;border-radius:12px;
+                     text-decoration:none;font-size:18px;">
+                     Open in Chrome
+                   </a>`
+                : `<a href="${url}" target="_blank" rel="noopener"
+                     style="display:inline-block;padding:14px 22px;
+                     background:#1e90ff;color:#fff;border-radius:12px;
+                     text-decoration:none;font-size:18px;">
+                     Open in Browser
+                   </a>`
+            }
+
+            <div style="margin-top:14px;font-size:13px;opacity:.7;line-height:1.4">
+              If it still doesn’t open:<br>
+              tap <b>⋮</b> (top right) → <b>Open in browser</b>
+            </div>
+          </div>
+        </div>`;
+    });
   }
 })();
 </script>
+
 
     
 
