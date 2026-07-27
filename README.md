@@ -2,7 +2,7 @@
 
 # 👋 Hi, I'm Bhuwan Bohara
 
-### 🚀 Aspiring Cloud & DevOps Engineer | 🤖 AI Practitioner | 🐍 Python Developer
+### 🚀 Aspiring Cloud & DevOps Engineer | 🤖 AI Practitioner 
 
 <p>
   <a href="https://github.com/bhuwan1233">
