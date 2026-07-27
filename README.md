@@ -82,16 +82,6 @@ Working with Docker, GitHub Actions, CI/CD, and cloud deployment.
 
 ---
 
-## 📊 GitHub Stats
-
-<div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api?username=bhuwan1233&show_icons=true&theme=tokyonight&hide_border=true" />
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=bhuwan1233&theme=tokyonight&hide_border=true" />
-
-</div>
-
 ---
 
 ## 🌱 My Current Goal
